@@ -85,11 +85,11 @@
             TbPesquisa.BorderStyle = BorderStyle.None;
             TbPesquisa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             TbPesquisa.ForeColor = Color.FromArgb(64, 64, 64);
-            TbPesquisa.Location = new Point(83, 218);
+            TbPesquisa.Location = new Point(85, 218);
             TbPesquisa.Margin = new Padding(6);
             TbPesquisa.Name = "TbPesquisa";
             TbPesquisa.PlaceholderText = "Coloque o nome do livro aqui";
-            TbPesquisa.Size = new Size(572, 18);
+            TbPesquisa.Size = new Size(568, 18);
             TbPesquisa.TabIndex = 3;
             TbPesquisa.WordWrap = false;
             // 
@@ -127,7 +127,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Biblioteca - Library Filipe";
             SizeChanged += FPrincipal_SizeChanged;
-            Paint += FPrincipal_Paint;
             Resize += FPrincipal_SizeChanged;
             ((System.ComponentModel.ISupportInitialize)PbLogo).EndInit();
             ResumeLayout(false);

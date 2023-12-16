@@ -62,24 +62,25 @@ namespace Biblioteca
             {
                 AtualizarPbLogo(Properties.Resources.logoLibraryFilipeGrande, 127);
                 AtualizarBtnLogin(new Point(this.Width - 16 - BtnLogin.Margin.Right - BtnLogin.Width, 12), FormatacoesPadrao.FontePadraoBtnGrande, "LOGIN", new Size(100, 33));
-                AtualizarTbPesquisa(new Point((this.Width - 16) / 2 - 325, 218), 588);
+                AtualizarTbPesquisa(new Point((this.Width - 16) / 2 - 323, 218), 584);
                 BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 12 + 3, TbPesquisa.Location.Y - 3);
             }
             else if (this.Width >= 450)
             {
                 AtualizarPbLogo(Properties.Resources.logoLibraryFilipeMedioPequeno, 107);
                 AtualizarBtnLogin(new Point(12, 12), FormatacoesPadrao.FontePadraoBtnGrande, "LOGIN", new Size(100, 33));
-                AtualizarTbPesquisa(new Point(15, 218), this.Width - 52 - BtnPesquisar.Width - 6);
+                AtualizarTbPesquisa(new Point(17, 218), this.Width - BtnPesquisar.Width - 62);
                 BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 12 + 3, TbPesquisa.Location.Y - 3);
             }
             else
             {
                 AtualizarPbLogo(Properties.Resources.logoLibraryFilipeMedioPequeno, 107);
-                AtualizarBtnLogin(new Point(BtnPesquisar.Width + 24, BtnPesquisar.Location.Y), FormatacoesPadrao.FontePadraoBtnPequeno, "FAZER LOGIN", new Size(TbPesquisa.Width - 62 + 6, 24));
-                AtualizarTbPesquisa(new Point(15, 218), this.Width - 40 - 6);
+                AtualizarBtnLogin(new Point(BtnPesquisar.Width + 24, BtnPesquisar.Location.Y), FormatacoesPadrao.FontePadraoBtnPequeno, "FAZER LOGIN", new Size(TbPesquisa.Width - 52, 24));
+                AtualizarTbPesquisa(new Point(17, 218), this.Width - 50);
                 BtnPesquisar.Location = new Point(12, TbPesquisa.Location.Y + TbPesquisa.Height + 12 + 4);
             }
             BtnPesquisar.Height = TbPesquisa.Height + 6;
+            Borda BordaTbPesquisa = new Borda(this, TbPesquisa, new int[] { 5, 3 }, Color.FromArgb(100, 100, 120), 1, 5, true);
         }
 
         private void FPrincipal_SizeChanged(object sender, EventArgs e)
@@ -97,19 +98,6 @@ namespace Biblioteca
         {
             FLogin fLogin = new();
             fLogin.ShowDialog();
-        }
-
-        private void FPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics graphics = e.Graphics;
-            graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            NewTextBox NewTbPesquisa = new NewTextBox(TbPesquisa, 3, 3);
-            NewTbPesquisa.CriarBorda(graphics, Color.FromArgb(120, 120, 140), 1, 5);
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            this.Invalidate();
         }
     }
 }
