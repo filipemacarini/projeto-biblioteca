@@ -24,14 +24,21 @@ using Biblioteca.Properties;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms.VisualStyles;
 
 namespace Biblioteca
 {
     public partial class FPrincipal : Form
     {
+        private Borda BordaTbPesquisa { get; set; }
+        private Borda BordaTbPesquisa2 { get; set; }
+        private static Bitmap BackgroundOriginal {  get; set; }
+
         public FPrincipal()
         {
             InitializeComponent();
+            BackgroundImage = new Bitmap(ClientSize.Width, ClientSize.Height);
+            BackgroundOriginal = new Bitmap(BackgroundImage);
             AtualizarLayout();
         }
 
@@ -70,17 +77,18 @@ namespace Biblioteca
                 AtualizarPbLogo(Properties.Resources.logoLibraryFilipeMedioPequeno, 107);
                 AtualizarBtnLogin(new Point(12, 12), FormatacoesPadrao.FontePadraoBtnGrande, "LOGIN", new Size(100, 33));
                 AtualizarTbPesquisa(new Point(17, 218), this.Width - BtnPesquisar.Width - 62);
-                BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 12 + 3, TbPesquisa.Location.Y - 3);
+                BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 15, TbPesquisa.Location.Y - 3);
             }
             else
             {
                 AtualizarPbLogo(Properties.Resources.logoLibraryFilipeMedioPequeno, 107);
                 AtualizarBtnLogin(new Point(BtnPesquisar.Width + 24, BtnPesquisar.Location.Y), FormatacoesPadrao.FontePadraoBtnPequeno, "FAZER LOGIN", new Size(TbPesquisa.Width - 52, 24));
                 AtualizarTbPesquisa(new Point(17, 218), this.Width - 50);
-                BtnPesquisar.Location = new Point(12, TbPesquisa.Location.Y + TbPesquisa.Height + 12 + 4);
+                BtnPesquisar.Location = new Point(12, TbPesquisa.Location.Y + TbPesquisa.Height + 16);
             }
             BtnPesquisar.Height = TbPesquisa.Height + 6;
-            Borda BordaTbPesquisa = new Borda(this, TbPesquisa, new int[] { 5, 3 }, Color.FromArgb(100, 100, 120), 1, 5, true);
+            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, 1, 5);
+            Borda.DesenharBordas(new Borda[] { BordaTbPesquisa }, this, BackgroundOriginal);
         }
 
         private void FPrincipal_SizeChanged(object sender, EventArgs e)

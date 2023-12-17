@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public static class GerenciadorBancoDados
+    public static class GerenciadorDados
     {
         // Cria e retorna a conexão com o banco de dados especificado em DadosGlobais.cs
         public static SQLiteConnection ConectarBanco()
         {
-            SQLiteConnection conexao = new SQLiteConnection($"Data Source = {DadosGlobais.caminhoBanco}");
+            SQLiteConnection conexao = new SQLiteConnection($"Data Source = {Globais.caminhoBanco}");
             conexao.Open();
             return conexao;
         }
@@ -27,6 +27,13 @@ namespace Biblioteca
             {
                 comando.Parameters.Add(parametro);
             }
+            return comando;
+        }
+
+        public static SQLiteCommand CriarComando(string comandoTexto, SQLiteParameter parametro)
+        {
+            SQLiteCommand comando = new SQLiteCommand(comandoTexto);
+            comando.Parameters.Add(parametro);
             return comando;
         }
 

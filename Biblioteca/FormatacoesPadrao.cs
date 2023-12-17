@@ -12,5 +12,6 @@ namespace Biblioteca
         public static Font FontePadraoBtnPequeno = new Font(new FontFamily("Segoe UI"), 9.0f, FontStyle.Bold);
         public static Font FontePadraoTextoGrande = new Font(new FontFamily("Segoe UI"), 10.0f, FontStyle.Regular);
         public static Color CorPadraoAzul = Color.FromArgb(60, 128, 238);
+        public static Color CorPadraoBorda = Color.FromArgb(150, 150, 180);
     }
 }

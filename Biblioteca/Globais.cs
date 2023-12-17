@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public static class DadosGlobais
+    public static class Globais
     {
         public static string caminhoRaiz = Environment.CurrentDirectory;
-        public static string caminhoBanco = @"C:\Users\manau\OneDrive\Documentos\meusRepositorios\gerenciamento-biblioteca\bancoDados\dadosLivros.db";
+        public static string caminhoBanco = $@"{caminhoRaiz}\banco\dados.db";
     }
 }

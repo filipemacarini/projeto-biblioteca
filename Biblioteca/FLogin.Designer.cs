@@ -29,14 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FLogin));
+            PnConta = new Panel();
+            pictureBox1 = new PictureBox();
+            PnConta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // PnConta
+            // 
+            PnConta.Anchor = AnchorStyles.Top;
+            PnConta.BackColor = Color.Transparent;
+            PnConta.Controls.Add(pictureBox1);
+            PnConta.Location = new Point(12, 12);
+            PnConta.Name = "PnConta";
+            PnConta.Size = new Size(392, 500);
+            PnConta.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.logoLibraryFilipeMedioPequeno;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(0, 36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(392, 50);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // FLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(339, 361);
+            ClientSize = new Size(416, 522);
+            Controls.Add(PnConta);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
@@ -44,10 +69,14 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Conta";
             SizeChanged += FLogin_SizeChanged;
-            Paint += FLogin_Paint;
+            PnConta.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel PnConta;
+        private PictureBox pictureBox1;
     }
 }

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace Biblioteca
 {
@@ -18,15 +19,9 @@ namespace Biblioteca
         public Color BorderColor { get; set; }
         public object Objetc { get; }
         public int[] Padding { get; set; }
-        public Bitmap Background { get; }
-        private Graphics Desenhador { get; set; }
 
-        public Borda(Form form, object borderObjetc, int[] borderPadding, Color borderColor, int borderWidth = 1, int borderRadius = 5, bool suavizado = false)
-        {
-            // Desenho
-            Background = new Bitmap(form.Width, form.Height);
-            Desenhador = Graphics.FromImage(Background);
-            
+        public Borda(object borderObjetc, int[] borderPadding, Color borderColor, int borderWidth = 1, int borderRadius = 5)
+        {            
             // Propriedades da Borda
             Padding = borderPadding;
             if (borderPadding == null) { Padding = new int[] { 10, 8 }; }
@@ -34,74 +29,95 @@ namespace Biblioteca
             BorderColor = borderColor;
             BorderWidth = borderWidth;
             BorderRadius = borderRadius;
-            if (suavizado ) { Desenhador.SmoothingMode = SmoothingMode.AntiAlias; }
-
-            // Desenha efetivamente a borda em Background e coloca de fundo no form especificado
-            DesenharBorda();
-            form.BackgroundImage = Background;
         }
 
-        private void DesenharBorda()
+        public static void DesenharBordas(Borda[] bordas, Form form, Bitmap backgroundOriginal)
         {
-            int x, y, largura, altura;
-            int TBW = 2 * BorderWidth;
-            int TBR = 2 * BorderRadius;
-            int diametro = TBR;
+            // Desenho
+            Bitmap resultado = new(form.Width, form.Height);
+            Graphics desenhador = Graphics.FromImage(resultado);
 
-            using (Brush brush = new SolidBrush(BorderColor))
-            using (Brush erase = new SolidBrush(Color.White))
+
+            foreach (Borda borda in bordas)
             {
-                PropertyInfo locationObjeto = Objetc.GetType().GetProperty("Location");
-                PropertyInfo widthObjeto = Objetc.GetType().GetProperty("Width");
-                PropertyInfo heightObjeto = Objetc.GetType().GetProperty("Height");
+                int x, y, largura, altura;
+                int TBW = 2 * borda.BorderWidth;
+                int TBR = 2 * borda.BorderRadius;
+                int diametro = TBR;
 
-                if (locationObjeto != null && widthObjeto != null && heightObjeto != null)
+                using (Brush brush = new SolidBrush(borda.BorderColor))
+                using (Brush erase = new SolidBrush(Color.White))
                 {
-                    Point location = (Point)locationObjeto.GetValue(Objetc);
-                    int width = (int)widthObjeto.GetValue(Objetc);
-                    int height = (int)heightObjeto.GetValue(Objetc);
+                    PropertyInfo locationObjeto = borda.Objetc.GetType().GetProperty("Location");
+                    PropertyInfo widthObjeto = borda.Objetc.GetType().GetProperty("Width");
+                    PropertyInfo heightObjeto = borda.Objetc.GetType().GetProperty("Height");
 
-                    // Circulo Superior Esquerdo
-                    x = location.X - Padding[0];
-                    y = location.Y - Padding[1];
-                    Desenhador.FillEllipse(brush, x, y, diametro, diametro);
-                    Desenhador.FillEllipse(erase, x + BorderWidth, y + BorderWidth, diametro - TBW, diametro - TBW);
+                    if (locationObjeto != null && widthObjeto != null && heightObjeto != null)
+                    {
+                        Point location = (Point)locationObjeto.GetValue(borda.Objetc);
+                        int width = (int)widthObjeto.GetValue(borda.Objetc);
+                        int height = (int)heightObjeto.GetValue(borda.Objetc);
 
-                    // Circulo Superior Direito
-                    x = location.X + width + Padding[0] - TBR;
-                    y = location.Y - Padding[1];
-                    Desenhador.FillEllipse(brush, x, y, diametro, diametro);
-                    Desenhador.FillEllipse(erase, x + BorderWidth, y + BorderWidth, diametro - TBW, diametro - TBW);
+                        // Circulo Superior Esquerdo
+                        x = location.X - borda.Padding[0];
+                        y = location.Y - borda.Padding[1];
+                        desenhador.FillEllipse(brush, x, y, diametro, diametro);
+                        //Desenhador.SmoothingMode = SmoothingMode.None;
+                        desenhador.FillEllipse(erase, x + borda.BorderWidth, y + borda.BorderWidth, diametro - TBW, diametro - TBW);
+                        //Desenhador.SmoothingMode = SmoothingMode.AntiAlias;
 
-                    // Circulo Inferior Direito
-                    x = location.X + width + Padding[0] - TBR;
-                    y = location.Y + height + Padding[1] - TBR;
-                    Desenhador.FillEllipse(brush, x, y, diametro, diametro);
-                    Desenhador.FillEllipse(erase, x + BorderWidth, y + BorderWidth, diametro - TBW, diametro - TBW);
+                        // Circulo Superior Direito
+                        x = location.X + width + borda.Padding[0] - TBR - borda.BorderWidth;
+                        y = location.Y - borda.Padding[1];
+                        desenhador.FillEllipse(brush, x, y, diametro, diametro);
+                        //Desenhador.SmoothingMode = SmoothingMode.None;
+                        desenhador.FillEllipse(erase, x + borda.BorderWidth, y + borda.BorderWidth, diametro - TBW, diametro - TBW);
+                        //Desenhador.SmoothingMode = SmoothingMode.AntiAlias;
 
-                    // Circulo Inferior Esquerdo
-                    x = location.X - Padding[0];
-                    y = location.Y + height + Padding[1] - TBR;
-                    Desenhador.FillEllipse(brush, x, y, diametro, diametro);
-                    Desenhador.FillEllipse(erase, x + BorderWidth, y + BorderWidth, diametro - TBW, diametro - TBW);
+                        // Circulo Inferior Direito
+                        x = location.X + width + borda.Padding[0] - TBR - borda.BorderWidth;
+                        y = location.Y + height + borda.Padding[1] - TBR - borda.BorderWidth;
+                        desenhador.FillEllipse(brush, x, y, diametro, diametro);
+                        //Desenhador.SmoothingMode = SmoothingMode.None;
+                        desenhador.FillEllipse(erase, x + borda.BorderWidth, y + borda.BorderWidth, diametro - TBW, diametro - TBW);
+                        //Desenhador.SmoothingMode = SmoothingMode.AntiAlias;
 
-                    // Retangulo Horizontal
-                    x = location.X - Padding[0];
-                    y = location.Y - Padding[1] + BorderRadius;
-                    largura = width + 2 * Padding[0];
-                    altura = (location.Y + height + Padding[1] - BorderRadius) - y;
-                    Desenhador.FillRectangle(brush, x, y, largura, altura);
-                    Desenhador.FillRectangle(erase, x + BorderWidth, y - 1, largura - TBW, altura + 2);
+                        // Circulo Inferior Esquerdo
+                        x = location.X - borda.Padding[0];
+                        y = location.Y + height + borda.Padding[1] - TBR - borda.BorderWidth;
+                        desenhador.FillEllipse(brush, x, y, diametro, diametro);
+                        //Desenhador.SmoothingMode = SmoothingMode.None;
+                        desenhador.FillEllipse(erase, x + borda.BorderWidth, y + borda.BorderWidth, diametro - TBW, diametro - TBW);
+                        //Desenhador.SmoothingMode = SmoothingMode.AntiAlias;
 
-                    // Retangulo Vertical
-                    x = location.X - Padding[0] + BorderRadius;
-                    y = location.Y - Padding[1];
-                    largura = location.X + width + Padding[0] - BorderRadius - x;
-                    altura = height + 2 * Padding[1];
-                    Desenhador.FillRectangle(brush, x, y, largura, altura);
-                    Desenhador.FillRectangle(erase, x - 1, y + BorderWidth, largura + 2, altura - TBW);
+                        // Retangulo Horizontal
+                        x = location.X - borda.Padding[0];
+                        y = location.Y - borda.Padding[1] + borda.BorderRadius;
+                        largura = width + 2 * borda.Padding[0];
+                        altura = (location.Y + height + borda.Padding[1] - borda.BorderRadius) - y;
+                        desenhador.FillRectangle(brush, x, y, largura, altura);
+                        //Desenhador.SmoothingMode = SmoothingMode.None;
+                        desenhador.FillRectangle(erase, x + borda.BorderWidth, y, largura - TBW, altura);
+                        //Desenhador.SmoothingMode = SmoothingMode.AntiAlias;
+
+                        // Retangulo Vertical
+                        x = location.X - borda.Padding[0] + borda.BorderRadius;
+                        y = location.Y - borda.Padding[1];
+                        largura = location.X + width + borda.Padding[0] - borda.BorderRadius - x;
+                        altura = height + 2 * borda.Padding[1];
+                        desenhador.FillRectangle(brush, x, y, largura, altura);
+                        //Desenhador.SmoothingMode = SmoothingMode.None;
+                        desenhador.FillRectangle(erase, x, y + borda.BorderWidth, largura, altura - TBW);
+                        //Desenhador.SmoothingMode = SmoothingMode.AntiAlias;
+                    }
                 }
             }
+
+            // Desenha efetivamente a borda feita em Desenho, em BackgroundImage do Form
+            desenhador = Graphics.FromImage(backgroundOriginal);
+            desenhador.DrawImage(resultado, new Point(0, 0));
+            form.BackgroundImage = resultado;
+            desenhador.Dispose();
         }
     }
 }

@@ -63,6 +63,16 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backgroundWhite {
+            get {
+                object obj = ResourceManager.GetObject("backgroundWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconeLupaPesquisar {
             get {
                 object obj = ResourceManager.GetObject("iconeLupaPesquisar", resourceCulture);

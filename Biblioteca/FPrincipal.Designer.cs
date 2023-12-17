@@ -140,5 +140,6 @@
         private PictureBox PbLogo;
         private TextBox TbPesquisa;
         private Button BtnPesquisar;
+        public Bitmap BackgroundImageIncial;
     }
 }
