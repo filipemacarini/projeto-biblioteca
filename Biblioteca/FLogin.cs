@@ -20,15 +20,17 @@ namespace Biblioteca
         public FLogin()
         {
             InitializeComponent();
+
             BackgroundImage = new Bitmap(ClientSize.Width, ClientSize.Height);
             BackgroundOriginal = new Bitmap(BackgroundImage);
+
             AtualizarLayout();
         }
 
         private void AtualizarLayout()
         {
             PnConta.Location = new Point((ClientSize.Width - PnConta.Width) / 2, (ClientSize.Height - PnConta.Height) / 2);
-            BordaPnConta = new Borda(PnConta, new int[] { 1, 1 }, FormatacoesPadrao.CorPadraoBorda, 1, 5);
+            BordaPnConta = new Borda(PnConta, new int[] { 1, 1 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, 1, 5);
             Borda.DesenharBordas(new Borda[] { BordaPnConta }, this, BackgroundOriginal); PnConta.Location = new Point((ClientSize.Width - PnConta.Width) / 2, (ClientSize.Height - PnConta.Height) / 2);
         }
 

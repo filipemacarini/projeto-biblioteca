@@ -31,15 +31,33 @@ namespace Biblioteca
     public partial class FPrincipal : Form
     {
         private Borda BordaTbPesquisa { get; set; }
-        private Borda BordaTbPesquisa2 { get; set; }
-        private static Bitmap BackgroundOriginal {  get; set; }
+        private Bitmap BackgroundOriginal { get; set; }
+        private Borda[] Bordas { get; set; }
 
         public FPrincipal()
         {
             InitializeComponent();
+
             BackgroundImage = new Bitmap(ClientSize.Width, ClientSize.Height);
             BackgroundOriginal = new Bitmap(BackgroundImage);
+
+            // Eventos de Foco
+            TbPesquisa.Enter += (sender, e) => { BordaTbPesquisa.Focused = true; DesenharBordas(); };
+            TbPesquisa.Leave += (sender, e) => { BordaTbPesquisa.Focused = false; DesenharBordas(); };
+
             AtualizarLayout();
+        }
+
+        private void InicializarBordas()
+        {
+            // Cria as bordas
+            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, 1, 5);
+            Bordas = new Borda[] { BordaTbPesquisa };
+        }
+
+        private void DesenharBordas()
+        {
+            Borda.DesenharBordas(Bordas, this, BackgroundOriginal);
         }
 
         private void AtualizarPbLogo(Bitmap imagem, int altura)
@@ -87,8 +105,12 @@ namespace Biblioteca
                 BtnPesquisar.Location = new Point(12, TbPesquisa.Location.Y + TbPesquisa.Height + 16);
             }
             BtnPesquisar.Height = TbPesquisa.Height + 6;
-            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, 1, 5);
-            Borda.DesenharBordas(new Borda[] { BordaTbPesquisa }, this, BackgroundOriginal);
+
+            // Cria as bordas
+            InicializarBordas();
+
+            // Atualizar bordas
+            DesenharBordas();
         }
 
         private void FPrincipal_SizeChanged(object sender, EventArgs e)
