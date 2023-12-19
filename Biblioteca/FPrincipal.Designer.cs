@@ -44,6 +44,7 @@
             BtnLogin.BackgroundImageLayout = ImageLayout.None;
             BtnLogin.Cursor = Cursors.Hand;
             BtnLogin.FlatAppearance.BorderSize = 0;
+            BtnLogin.FlatAppearance.MouseOverBackColor = FormatacoesPadrao.CorPadraoAzulEscuro;
             BtnLogin.FlatStyle = FlatStyle.Flat;
             BtnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnLogin.ForeColor = Color.White;
@@ -59,7 +60,7 @@
             // LbDireitosAutorais
             // 
             LbDireitosAutorais.Dock = DockStyle.Bottom;
-            LbDireitosAutorais.ForeColor = Color.FromArgb(64, 64, 64);
+            LbDireitosAutorais.ForeColor = Color.FromArgb(60, 60, 80);
             LbDireitosAutorais.Location = new Point(0, 411);
             LbDireitosAutorais.Name = "LbDireitosAutorais";
             LbDireitosAutorais.Size = new Size(800, 30);
@@ -84,7 +85,7 @@
             TbPesquisa.BackColor = Color.White;
             TbPesquisa.BorderStyle = BorderStyle.None;
             TbPesquisa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TbPesquisa.ForeColor = Color.FromArgb(64, 64, 64);
+            TbPesquisa.ForeColor = Color.FromArgb(20, 20, 60);
             TbPesquisa.Location = new Point(85, 218);
             TbPesquisa.Margin = new Padding(6);
             TbPesquisa.Name = "TbPesquisa";
@@ -101,6 +102,7 @@
             BtnPesquisar.BackgroundImageLayout = ImageLayout.Center;
             BtnPesquisar.Cursor = Cursors.Hand;
             BtnPesquisar.FlatAppearance.BorderSize = 0;
+            BtnPesquisar.FlatAppearance.MouseOverBackColor = FormatacoesPadrao.CorPadraoAzulEscuro;
             BtnPesquisar.FlatStyle = FlatStyle.Flat;
             BtnPesquisar.Location = new Point(670, 215);
             BtnPesquisar.Margin = new Padding(6);

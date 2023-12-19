@@ -10,5 +10,6 @@ namespace Biblioteca
     {
         public static string caminhoRaiz = Environment.CurrentDirectory;
         public static string caminhoBanco = $@"{caminhoRaiz}\banco\dados.db";
+        public static Thread thread;
     }
 }

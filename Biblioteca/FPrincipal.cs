@@ -30,9 +30,9 @@ namespace Biblioteca
 {
     public partial class FPrincipal : Form
     {
-        private Borda BordaTbPesquisa { get; set; }
+        private Preenchimento BordaTbPesquisa { get; set; }
         private Bitmap BackgroundOriginal { get; set; }
-        private Borda[] Bordas { get; set; }
+        private Preenchimento[] Bordas { get; set; }
 
         public FPrincipal()
         {
@@ -51,13 +51,13 @@ namespace Biblioteca
         private void InicializarBordas()
         {
             // Cria as bordas
-            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, 1, 5);
-            Bordas = new Borda[] { BordaTbPesquisa };
+            BordaTbPesquisa = new Preenchimento(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, FormatacoesPadrao.CorPadraoCinza);
+            Bordas = new Preenchimento[] { BordaTbPesquisa };
         }
 
         private void DesenharBordas()
         {
-            Borda.DesenharBordas(Bordas, this, BackgroundOriginal);
+            Preenchimento.DesenharBordas(Bordas, this, BackgroundOriginal);
         }
 
         private void AtualizarPbLogo(Bitmap imagem, int altura)
@@ -106,10 +106,8 @@ namespace Biblioteca
             }
             BtnPesquisar.Height = TbPesquisa.Height + 6;
 
-            // Cria as bordas
+            // Cria e Desenha as bordas
             InicializarBordas();
-
-            // Atualizar bordas
             DesenharBordas();
         }
 
@@ -126,8 +124,10 @@ namespace Biblioteca
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            FLogin fLogin = new();
-            fLogin.ShowDialog();
+            Close();
+            Globais.thread = new Thread((sender) => { Application.Run(new FLogin()); });
+            Globais.thread.SetApartmentState(ApartmentState.STA);
+            Globais.thread.Start();
         }
     }
 }
