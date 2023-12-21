@@ -30,9 +30,9 @@ namespace Biblioteca
 {
     public partial class FPrincipal : Form
     {
-        private Preenchimento BordaTbPesquisa { get; set; }
+        private Borda BordaTbPesquisa { get; set; }
         private Bitmap BackgroundOriginal { get; set; }
-        private Preenchimento[] Bordas { get; set; }
+        private Borda[] Bordas { get; set; }
 
         public FPrincipal()
         {
@@ -51,13 +51,13 @@ namespace Biblioteca
         private void InicializarBordas()
         {
             // Cria as bordas
-            BordaTbPesquisa = new Preenchimento(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, FormatacoesPadrao.CorPadraoCinza);
-            Bordas = new Preenchimento[] { BordaTbPesquisa };
+            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, Color.White);
+            Bordas = new Borda[] { BordaTbPesquisa };
         }
 
         private void DesenharBordas()
         {
-            Preenchimento.DesenharBordas(Bordas, this, BackgroundOriginal);
+            Borda.DesenharBordas(Bordas, this, BackgroundOriginal);
         }
 
         private void AtualizarPbLogo(Bitmap imagem, int altura)

@@ -63,9 +63,9 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backgroundWhite {
+        internal static System.Drawing.Bitmap iconeAlertaPequeno {
             get {
-                object obj = ResourceManager.GetObject("backgroundWhite", resourceCulture);
+                object obj = ResourceManager.GetObject("iconeAlertaPequeno", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
