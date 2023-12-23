@@ -29,33 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPrincipal));
-            BtnLogin = new Button();
             LbDireitosAutorais = new Label();
             PbLogo = new PictureBox();
             TbPesquisa = new TextBox();
-            BtnPesquisar = new Button();
+            BtnPesquisar = new Label();
+            BtnLogin = new Label();
             ((System.ComponentModel.ISupportInitialize)PbLogo).BeginInit();
             SuspendLayout();
-            // 
-            // BtnLogin
-            // 
-            BtnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnLogin.BackColor = Color.FromArgb(60, 128, 238);
-            BtnLogin.BackgroundImageLayout = ImageLayout.None;
-            BtnLogin.Cursor = Cursors.Hand;
-            BtnLogin.FlatAppearance.BorderSize = 0;
-            BtnLogin.FlatAppearance.MouseOverBackColor = FormatacoesPadrao.CorPadraoAzulEscuro;
-            BtnLogin.FlatStyle = FlatStyle.Flat;
-            BtnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnLogin.ForeColor = Color.White;
-            BtnLogin.Location = new Point(685, 12);
-            BtnLogin.Margin = new Padding(12);
-            BtnLogin.Name = "BtnLogin";
-            BtnLogin.Size = new Size(100, 33);
-            BtnLogin.TabIndex = 1;
-            BtnLogin.Text = "Login";
-            BtnLogin.UseVisualStyleBackColor = false;
-            BtnLogin.Click += BtnLogin_Click;
             // 
             // LbDireitosAutorais
             // 
@@ -73,15 +53,17 @@
             PbLogo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PbLogo.BackgroundImage = Properties.Resources.logoLibraryFilipeGrande;
             PbLogo.BackgroundImageLayout = ImageLayout.Center;
-            PbLogo.Location = new Point(12, 80);
+            PbLogo.Location = new Point(9, 80);
+            PbLogo.Margin = new Padding(0);
             PbLogo.MinimumSize = new Size(286, 127);
             PbLogo.Name = "PbLogo";
-            PbLogo.Size = new Size(776, 127);
+            PbLogo.Size = new Size(782, 127);
             PbLogo.TabIndex = 2;
             PbLogo.TabStop = false;
             // 
             // TbPesquisa
             // 
+            TbPesquisa.Anchor = AnchorStyles.Top;
             TbPesquisa.BackColor = Color.White;
             TbPesquisa.BorderStyle = BorderStyle.None;
             TbPesquisa.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -96,21 +78,30 @@
             // 
             // BtnPesquisar
             // 
-            BtnPesquisar.Anchor = AnchorStyles.Top;
-            BtnPesquisar.BackColor = Color.FromArgb(60, 128, 238);
-            BtnPesquisar.BackgroundImage = Properties.Resources.iconeLupaPesquisar;
-            BtnPesquisar.BackgroundImageLayout = ImageLayout.Center;
+            BtnPesquisar.BackColor = Color.Transparent;
             BtnPesquisar.Cursor = Cursors.Hand;
-            BtnPesquisar.FlatAppearance.BorderSize = 0;
-            BtnPesquisar.FlatAppearance.MouseOverBackColor = FormatacoesPadrao.CorPadraoAzulEscuro;
-            BtnPesquisar.FlatStyle = FlatStyle.Flat;
-            BtnPesquisar.Location = new Point(670, 215);
-            BtnPesquisar.Margin = new Padding(6);
+            BtnPesquisar.Image = Properties.Resources.iconeLupaPesquisar;
+            BtnPesquisar.Location = new Point(665, 218);
             BtnPesquisar.Name = "BtnPesquisar";
             BtnPesquisar.Size = new Size(50, 25);
-            BtnPesquisar.TabIndex = 4;
-            BtnPesquisar.UseVisualStyleBackColor = true;
+            BtnPesquisar.TabIndex = 7;
             BtnPesquisar.Click += BtnPesquisar_Click;
+            // 
+            // BtnLogin
+            // 
+            BtnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnLogin.BackColor = Color.Transparent;
+            BtnLogin.Cursor = Cursors.Hand;
+            BtnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnLogin.ForeColor = Color.White;
+            BtnLogin.Location = new Point(688, 12);
+            BtnLogin.Margin = new Padding(6);
+            BtnLogin.Name = "BtnLogin";
+            BtnLogin.Size = new Size(100, 33);
+            BtnLogin.TabIndex = 8;
+            BtnLogin.Text = "Login";
+            BtnLogin.TextAlign = ContentAlignment.MiddleCenter;
+            BtnLogin.Click += BtnLogin_Click;
             // 
             // FPrincipal
             // 
@@ -118,10 +109,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 441);
+            Controls.Add(BtnLogin);
             Controls.Add(BtnPesquisar);
             Controls.Add(LbDireitosAutorais);
             Controls.Add(PbLogo);
-            Controls.Add(BtnLogin);
             Controls.Add(TbPesquisa);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(400, 480);
@@ -136,12 +127,11 @@
         }
 
         #endregion
-
-        private Button BtnLogin;
         private Label LbDireitosAutorais;
         private PictureBox PbLogo;
         private TextBox TbPesquisa;
-        private Button BtnPesquisar;
         public Bitmap BackgroundImageIncial;
+        private Label BtnPesquisar;
+        private Label BtnLogin;
     }
 }

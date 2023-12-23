@@ -66,3 +66,4 @@ C:\Users\manau\OneDrive\Documentos\meusRepositorios\projeto-biblioteca\Bibliotec
 C:\Users\manau\OneDrive\Documentos\meusRepositorios\projeto-biblioteca\Biblioteca\obj\Debug\net7.0-windows\Biblioteca.pdb
 C:\Users\manau\OneDrive\Documentos\meusRepositorios\projeto-biblioteca\Biblioteca\obj\Debug\net7.0-windows\Biblioteca.genruntimeconfig.cache
 C:\Users\manau\OneDrive\Documentos\meusRepositorios\projeto-biblioteca\Biblioteca\obj\Debug\net7.0-windows\ref\Biblioteca.dll
+C:\Users\manau\OneDrive\Documentos\meusRepositorios\projeto-biblioteca\Biblioteca\obj\Debug\net7.0-windows\Biblioteca.FUserInfo.resources

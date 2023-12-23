@@ -18,6 +18,6 @@ namespace Biblioteca
         public static string Senha { get; set; }
         public static string Nome_Completo { get; set; }
         public static string Email { get; set; }
-        public static bool Logado { get; set; }
+        public static bool Logado { get; set; } = false;
     }
 }

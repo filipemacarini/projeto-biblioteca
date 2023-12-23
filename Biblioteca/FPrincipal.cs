@@ -31,6 +31,8 @@ namespace Biblioteca
     public partial class FPrincipal : Form
     {
         private Borda BordaTbPesquisa { get; set; }
+        private Borda BordaBtnPesquisa { get; set; }
+        private Borda BordaBtnLogin { get; set; }
         private Bitmap BackgroundOriginal { get; set; }
         private Borda[] Bordas { get; set; }
 
@@ -51,28 +53,19 @@ namespace Biblioteca
         private void InicializarBordas()
         {
             // Cria as bordas
-            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 3 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, Color.White);
-            Bordas = new Borda[] { BordaTbPesquisa };
+            BordaTbPesquisa = new Borda(TbPesquisa, new int[] { 5, 5 }, FormatacoesPadrao.CorPadraoBorda, FormatacoesPadrao.CorPadraoAzul, Color.White);
+            BordaBtnPesquisa = new Borda(BtnPesquisar, new int[] { 0, 0 }, FormatacoesPadrao.CorPadraoAzul, FormatacoesPadrao.CorPadraoAzul, FormatacoesPadrao.CorPadraoAzul);
+            Bordas = new Borda[] { BordaTbPesquisa, BordaBtnPesquisa };
+            if (!Globais.Logado)
+            {
+                BordaBtnLogin = new Borda(BtnLogin, new int[] { 0, 0 }, FormatacoesPadrao.CorPadraoAzul, FormatacoesPadrao.CorPadraoAzul, FormatacoesPadrao.CorPadraoAzul);
+                Bordas = new Borda[] { BordaTbPesquisa, BordaBtnPesquisa, BordaBtnLogin };
+            }
         }
 
         private void DesenharBordas()
         {
             Borda.DesenharBordas(Bordas, this, BackgroundOriginal);
-        }
-
-        private void AtualizarPbLogo(Bitmap imagem, int altura)
-        {
-            PbLogo.BackgroundImage = imagem;
-            PbLogo.Size = new Size(this.Width - 24, altura);
-            PbLogo.Location = new Point(12, 80);
-        }
-
-        private void AtualizarBtnLogin(Point ponto, Font fonte, String texto, Size tamanho)
-        {
-            BtnLogin.Location = ponto;
-            BtnLogin.Font = fonte;
-            BtnLogin.Text = texto;
-            BtnLogin.Size = tamanho;
         }
 
         private void AtualizarTbPesquisa(Point ponto, int largura)
@@ -83,28 +76,18 @@ namespace Biblioteca
 
         private void AtualizarLayout()
         {
+            BtnLogin.Visible = Globais.Logado ? false : true;
+            PbLogo.BackgroundImage = Resources.logoLibraryFilipeMedioPequeno;
+            AtualizarTbPesquisa(new Point(17, 218), this.Width - BtnPesquisar.Width - 62);
+
             if (this.Width >= 690)
             {
-                AtualizarPbLogo(Properties.Resources.logoLibraryFilipeGrande, 127);
-                AtualizarBtnLogin(new Point(this.Width - 16 - BtnLogin.Margin.Right - BtnLogin.Width, 12), FormatacoesPadrao.FontePadraoBtnGrande, "LOGIN", new Size(100, 33));
+                PbLogo.BackgroundImage = Resources.logoLibraryFilipeGrande;
                 AtualizarTbPesquisa(new Point((this.Width - 16) / 2 - 323, 218), 584);
-                BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 12 + 3, TbPesquisa.Location.Y - 3);
             }
-            else if (this.Width >= 450)
-            {
-                AtualizarPbLogo(Properties.Resources.logoLibraryFilipeMedioPequeno, 107);
-                AtualizarBtnLogin(new Point(12, 12), FormatacoesPadrao.FontePadraoBtnGrande, "LOGIN", new Size(100, 33));
-                AtualizarTbPesquisa(new Point(17, 218), this.Width - BtnPesquisar.Width - 62);
-                BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 15, TbPesquisa.Location.Y - 3);
-            }
-            else
-            {
-                AtualizarPbLogo(Properties.Resources.logoLibraryFilipeMedioPequeno, 107);
-                AtualizarBtnLogin(new Point(BtnPesquisar.Width + 24, BtnPesquisar.Location.Y), FormatacoesPadrao.FontePadraoBtnPequeno, "FAZER LOGIN", new Size(TbPesquisa.Width - 52, 24));
-                AtualizarTbPesquisa(new Point(17, 218), this.Width - 50);
-                BtnPesquisar.Location = new Point(12, TbPesquisa.Location.Y + TbPesquisa.Height + 16);
-            }
-            BtnPesquisar.Height = TbPesquisa.Height + 6;
+
+            BtnPesquisar.Location = new Point(TbPesquisa.Location.X + TbPesquisa.Width + 17, TbPesquisa.Location.Y - 5);
+            BtnPesquisar.Height = TbPesquisa.Height + 10;
 
             // Cria e Desenha as bordas
             InicializarBordas();
@@ -117,17 +100,17 @@ namespace Biblioteca
             this.Invalidate();
         }
 
-        private void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             Close();
             Globais.thread = new Thread((sender) => { Application.Run(new FLogin()); });
             Globais.thread.SetApartmentState(ApartmentState.STA);
             Globais.thread.Start();
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

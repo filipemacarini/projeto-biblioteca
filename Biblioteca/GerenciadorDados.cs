@@ -54,6 +54,7 @@ namespace Biblioteca
         {
             using (SQLiteConnection conexao = ConectarBanco())
             {
+                escrita.Connection = conexao;
                 escrita.ExecuteNonQuery();
             }
         }

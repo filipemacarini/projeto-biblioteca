@@ -15,9 +15,8 @@ namespace Biblioteca
         public string Nome_Completo { get; set; }
         public string Email { get; set; }
 
-        public Usuario(int id, string nome, string senha, string nome_completo, string email)
+        public Usuario(string nome, string senha, string nome_completo, string email)
         {
-            Id = id;
             Nome = nome;
             Senha = senha;
             Nome_Completo = nome_completo;
