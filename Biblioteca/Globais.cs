@@ -16,8 +16,15 @@ namespace Biblioteca
         public static int Id { get; set; } = 1;
         public static string Nome { get; set; } = "Filipe";
         public static string Senha { get; set; } = "1234";
-        public static string Nome_Completo { get; set; } = "Filipe Emanuel Macarini Roco";
+        public static string Nome_Completo { get; set; } = "Filipe Macarini Roco";
         public static string Email { get; set; } = "filipe.roco@yahoo.com";
-        public static bool Logado { get; set; } = false; 
+        public static bool Logado { get; set; } = true; 
+
+        public static void Zerar()
+        {
+            Id = 0;
+            Nome = Senha = Nome_Completo = Email = "";
+            Logado = false;
+        }
     }
 }

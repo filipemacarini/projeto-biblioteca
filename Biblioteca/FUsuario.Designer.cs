@@ -31,6 +31,9 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FUsuario));
             PnSideBar = new Panel();
+            PnSair = new Panel();
+            label5 = new Label();
+            pictureBox4 = new PictureBox();
             PnInfo = new Panel();
             label2 = new Label();
             pictureBox2 = new PictureBox();
@@ -41,7 +44,8 @@
             PbLogo = new PictureBox();
             label3 = new Label();
             pictureBox3 = new PictureBox();
-            PnInfoPessoais = new Panel();
+            PnTela = new Panel();
+            LvHistorico = new ListView();
             LbConfirmacao = new Label();
             LbEmail = new Label();
             LbNomeCompleto = new Label();
@@ -57,7 +61,10 @@
             TbNomeCompleto = new TextBox();
             TbID = new TextBox();
             TmCampos = new System.Windows.Forms.Timer(components);
+            label4 = new Label();
             PnSideBar.SuspendLayout();
+            PnSair.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             PnInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PnInicio.SuspendLayout();
@@ -65,12 +72,13 @@
             PnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            PnInfoPessoais.SuspendLayout();
+            PnTela.SuspendLayout();
             SuspendLayout();
             // 
             // PnSideBar
             // 
             PnSideBar.BackColor = Color.Transparent;
+            PnSideBar.Controls.Add(PnSair);
             PnSideBar.Controls.Add(PnInfo);
             PnSideBar.Controls.Add(PnInicio);
             PnSideBar.Controls.Add(PnHeader);
@@ -79,6 +87,39 @@
             PnSideBar.Name = "PnSideBar";
             PnSideBar.Size = new Size(247, 526);
             PnSideBar.TabIndex = 0;
+            // 
+            // PnSair
+            // 
+            PnSair.Controls.Add(label5);
+            PnSair.Controls.Add(pictureBox4);
+            PnSair.Cursor = Cursors.Hand;
+            PnSair.Location = new Point(24, 468);
+            PnSair.Margin = new Padding(12, 24, 24, 12);
+            PnSair.Name = "PnSair";
+            PnSair.Size = new Size(199, 34);
+            PnSair.TabIndex = 3;
+            PnSair.Click += PnSair_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.FromArgb(16, 16, 16);
+            label5.Location = new Point(35, 8);
+            label5.Name = "label5";
+            label5.Size = new Size(105, 19);
+            label5.TabIndex = 1;
+            label5.Text = "Sair da Conta";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.boxIn;
+            pictureBox4.Location = new Point(5, 5);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(24, 24);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
             // 
             // PnInfo
             // 
@@ -192,30 +233,28 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // PnInfoPessoais
+            // PnTela
             // 
-            PnInfoPessoais.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            PnInfoPessoais.BackColor = Color.Transparent;
-            PnInfoPessoais.Controls.Add(LbConfirmacao);
-            PnInfoPessoais.Controls.Add(LbEmail);
-            PnInfoPessoais.Controls.Add(LbNomeCompleto);
-            PnInfoPessoais.Controls.Add(LbSenha);
-            PnInfoPessoais.Controls.Add(LbNome);
-            PnInfoPessoais.Controls.Add(LbID);
-            PnInfoPessoais.Controls.Add(LbOpcao2);
-            PnInfoPessoais.Controls.Add(TbConfirmacao);
-            PnInfoPessoais.Controls.Add(TbSenha);
-            PnInfoPessoais.Controls.Add(LbOpcao1);
-            PnInfoPessoais.Controls.Add(TbEmail);
-            PnInfoPessoais.Controls.Add(TbNome);
-            PnInfoPessoais.Controls.Add(TbNomeCompleto);
-            PnInfoPessoais.Controls.Add(TbID);
-            PnInfoPessoais.Location = new Point(283, 175);
-            PnInfoPessoais.Margin = new Padding(0);
-            PnInfoPessoais.Name = "PnInfoPessoais";
-            PnInfoPessoais.Padding = new Padding(36);
-            PnInfoPessoais.Size = new Size(481, 315);
-            PnInfoPessoais.TabIndex = 2;
+            PnTela.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PnTela.BackColor = Color.Transparent;
+            PnTela.Controls.Add(LvHistorico);
+            PnTela.Location = new Point(283, 175);
+            PnTela.Margin = new Padding(0);
+            PnTela.Name = "PnTela";
+            PnTela.Padding = new Padding(36);
+            PnTela.Size = new Size(481, 315);
+            PnTela.TabIndex = 2;
+            // 
+            // LvHistorico
+            // 
+            LvHistorico.BorderStyle = BorderStyle.None;
+            LvHistorico.FullRowSelect = true;
+            LvHistorico.Location = new Point(36, 36);
+            LvHistorico.Margin = new Padding(0);
+            LvHistorico.Name = "LvHistorico";
+            LvHistorico.Size = new Size(409, 243);
+            LvHistorico.TabIndex = 0;
+            LvHistorico.UseCompatibleStateImageBehavior = false;
             // 
             // LbConfirmacao
             // 
@@ -228,6 +267,7 @@
             LbConfirmacao.Size = new Size(111, 19);
             LbConfirmacao.TabIndex = 17;
             LbConfirmacao.Text = "Confirmar Senha";
+            LbConfirmacao.Visible = false;
             // 
             // LbEmail
             // 
@@ -240,6 +280,7 @@
             LbEmail.Size = new Size(47, 19);
             LbEmail.TabIndex = 16;
             LbEmail.Text = "E-mail";
+            LbEmail.Visible = false;
             // 
             // LbNomeCompleto
             // 
@@ -252,6 +293,7 @@
             LbNomeCompleto.Size = new Size(110, 19);
             LbNomeCompleto.TabIndex = 15;
             LbNomeCompleto.Text = "Nome Completo";
+            LbNomeCompleto.Visible = false;
             // 
             // LbSenha
             // 
@@ -264,6 +306,7 @@
             LbSenha.Size = new Size(46, 19);
             LbSenha.TabIndex = 14;
             LbSenha.Text = "Senha";
+            LbSenha.Visible = false;
             // 
             // LbNome
             // 
@@ -276,6 +319,7 @@
             LbNome.Size = new Size(46, 19);
             LbNome.TabIndex = 13;
             LbNome.Text = "Nome";
+            LbNome.Visible = false;
             // 
             // LbID
             // 
@@ -288,6 +332,7 @@
             LbID.Size = new Size(23, 19);
             LbID.TabIndex = 12;
             LbID.Text = "ID";
+            LbID.Visible = false;
             // 
             // LbOpcao2
             // 
@@ -302,6 +347,7 @@
             LbOpcao2.TabIndex = 11;
             LbOpcao2.Text = "Alterar";
             LbOpcao2.TextAlign = ContentAlignment.MiddleCenter;
+            LbOpcao2.Visible = false;
             LbOpcao2.Click += LbOpcao2_Click;
             // 
             // TbConfirmacao
@@ -316,6 +362,7 @@
             TbConfirmacao.Name = "TbConfirmacao";
             TbConfirmacao.Size = new Size(167, 20);
             TbConfirmacao.TabIndex = 5;
+            TbConfirmacao.Visible = false;
             TbConfirmacao.Enter += TbEntrada_EnterLeave;
             TbConfirmacao.Leave += TbEntrada_EnterLeave;
             // 
@@ -330,6 +377,7 @@
             TbSenha.Name = "TbSenha";
             TbSenha.Size = new Size(166, 20);
             TbSenha.TabIndex = 4;
+            TbSenha.Visible = false;
             TbSenha.Enter += TbEntrada_EnterLeave;
             TbSenha.Leave += TbEntrada_EnterLeave;
             // 
@@ -346,6 +394,7 @@
             LbOpcao1.TabIndex = 10;
             LbOpcao1.Text = "Cancelar";
             LbOpcao1.TextAlign = ContentAlignment.MiddleCenter;
+            LbOpcao1.Visible = false;
             LbOpcao1.Click += LbOpcao1_Click;
             // 
             // TbEmail
@@ -360,6 +409,7 @@
             TbEmail.Name = "TbEmail";
             TbEmail.Size = new Size(167, 20);
             TbEmail.TabIndex = 3;
+            TbEmail.Visible = false;
             TbEmail.Enter += TbEntrada_EnterLeave;
             TbEmail.Leave += TbEntrada_EnterLeave;
             // 
@@ -374,6 +424,7 @@
             TbNome.Name = "TbNome";
             TbNome.Size = new Size(166, 20);
             TbNome.TabIndex = 2;
+            TbNome.Visible = false;
             TbNome.Enter += TbEntrada_EnterLeave;
             TbNome.Leave += TbEntrada_EnterLeave;
             // 
@@ -389,6 +440,7 @@
             TbNomeCompleto.Name = "TbNomeCompleto";
             TbNomeCompleto.Size = new Size(303, 20);
             TbNomeCompleto.TabIndex = 1;
+            TbNomeCompleto.Visible = false;
             TbNomeCompleto.Enter += TbEntrada_EnterLeave;
             TbNomeCompleto.Leave += TbEntrada_EnterLeave;
             // 
@@ -404,6 +456,7 @@
             TbID.ReadOnly = true;
             TbID.Size = new Size(30, 20);
             TbID.TabIndex = 0;
+            TbID.Visible = false;
             TbID.Enter += TbEntrada_EnterLeave;
             TbID.Leave += TbEntrada_EnterLeave;
             // 
@@ -413,13 +466,25 @@
             TmCampos.Interval = 1;
             TmCampos.Tick += TmCampos_Tick;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.FromArgb(60, 60, 80);
+            label4.Location = new Point(326, 165);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 19);
+            label4.TabIndex = 1;
+            label4.Text = "Histórico";
+            // 
             // FUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 526);
-            Controls.Add(PnInfoPessoais);
+            Controls.Add(label4);
+            Controls.Add(PnTela);
             Controls.Add(label3);
             Controls.Add(PnSideBar);
             Controls.Add(pictureBox3);
@@ -429,9 +494,11 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Informações do Usuário";
             FormClosed += FUsuario_FormClosed;
-            Load += FUsuario_Load;
             SizeChanged += FUsuario_SizeChanged;
             PnSideBar.ResumeLayout(false);
+            PnSair.ResumeLayout(false);
+            PnSair.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             PnInfo.ResumeLayout(false);
             PnInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -441,9 +508,9 @@
             PnHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PbLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            PnInfoPessoais.ResumeLayout(false);
-            PnInfoPessoais.PerformLayout();
+            PnTela.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -459,7 +526,7 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Label label3;
-        private Panel PnInfoPessoais;
+        private Panel PnTela;
         private TextBox TbID;
         private TextBox TbNomeCompleto;
         private TextBox TbEmail;
@@ -475,5 +542,10 @@
         private Label LbEmail;
         private Label LbNomeCompleto;
         private System.Windows.Forms.Timer TmCampos;
+        private ListView LvHistorico;
+        private Label label4;
+        private Panel PnSair;
+        private Label label5;
+        private PictureBox pictureBox4;
     }
 }

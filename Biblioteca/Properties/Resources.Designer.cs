@@ -63,6 +63,16 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boxIn {
+            get {
+                object obj = ResourceManager.GetObject("boxIn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconeAlertaPequeno {
             get {
                 object obj = ResourceManager.GetObject("iconeAlertaPequeno", resourceCulture);

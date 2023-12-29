@@ -15,6 +15,7 @@ namespace Biblioteca
         public static Color CorPadraoAzulEscuro = Color.FromArgb(17, 96, 170);
         public static Color CorPadraoAzulClaro = Color.FromArgb(194, 231, 255);
         public static Color CorPadraoVermelho = Color.FromArgb(217, 48, 37);
+        public static Color CorPadraoVermelhoClaro = Color.FromArgb(255, 155, 155);
         public static Color CorPadraoBorda = Color.FromArgb(190, 190, 230);
         public static Color CorPadraoCinza = Color.FromArgb(60, 60, 80);
         public static Color CorPadraoCinzaDestaque = Color.FromArgb(20, 20, 60);

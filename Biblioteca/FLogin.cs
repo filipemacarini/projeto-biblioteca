@@ -211,7 +211,7 @@ namespace Biblioteca
             TbEntrada2.Visible = true;
             TbEntrada3.Visible = true;
             LbUsuario.Visible = false;
-            LbTitulo.Text = "Fazer Signin";
+            LbTitulo.Text = "Fazer signin";
             TbEntrada.Focus();
             CorTemaTipo = FormatacoesPadrao.CorPadraoAzul;
             LbTipo.ForeColor = CorTemaTipo;
@@ -382,6 +382,8 @@ namespace Biblioteca
                     {
                         NovoUsuario.Senha = TbEntrada.Text;
                         GerenciadorDados.AdicionarUsuario(NovoUsuario.Nome, NovoUsuario.Senha, NovoUsuario.Nome_Completo, NovoUsuario.Email);
+
+                        MudarParaNome();
                     }
                     break;
             }
