@@ -13,6 +13,7 @@ namespace Biblioteca
         public static Font FontePadraoTextoGrande = new Font(new FontFamily("Segoe UI"), 10.0f, FontStyle.Regular);
         public static Color CorPadraoAzul = Color.FromArgb(27, 102, 201);
         public static Color CorPadraoAzulEscuro = Color.FromArgb(17, 96, 170);
+        public static Color CorPadraoAzulClaro = Color.FromArgb(194, 231, 255);
         public static Color CorPadraoVermelho = Color.FromArgb(217, 48, 37);
         public static Color CorPadraoBorda = Color.FromArgb(190, 190, 230);
         public static Color CorPadraoCinza = Color.FromArgb(60, 60, 80);

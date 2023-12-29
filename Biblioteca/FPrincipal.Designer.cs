@@ -33,7 +33,7 @@
             PbLogo = new PictureBox();
             TbPesquisa = new TextBox();
             BtnPesquisar = new Label();
-            BtnLogin = new Label();
+            BtnConta = new Label();
             ((System.ComponentModel.ISupportInitialize)PbLogo).BeginInit();
             SuspendLayout();
             // 
@@ -87,21 +87,21 @@
             BtnPesquisar.TabIndex = 7;
             BtnPesquisar.Click += BtnPesquisar_Click;
             // 
-            // BtnLogin
+            // BtnConta
             // 
-            BtnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnLogin.BackColor = Color.Transparent;
-            BtnLogin.Cursor = Cursors.Hand;
-            BtnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnLogin.ForeColor = Color.White;
-            BtnLogin.Location = new Point(688, 12);
-            BtnLogin.Margin = new Padding(6);
-            BtnLogin.Name = "BtnLogin";
-            BtnLogin.Size = new Size(100, 33);
-            BtnLogin.TabIndex = 8;
-            BtnLogin.Text = "Login";
-            BtnLogin.TextAlign = ContentAlignment.MiddleCenter;
-            BtnLogin.Click += BtnLogin_Click;
+            BtnConta.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnConta.BackColor = Color.Transparent;
+            BtnConta.Cursor = Cursors.Hand;
+            BtnConta.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnConta.ForeColor = Color.White;
+            BtnConta.Location = new Point(688, 12);
+            BtnConta.Margin = new Padding(6);
+            BtnConta.Name = "BtnConta";
+            BtnConta.Size = new Size(100, 33);
+            BtnConta.TabIndex = 8;
+            BtnConta.Text = "Login";
+            BtnConta.TextAlign = ContentAlignment.MiddleCenter;
+            BtnConta.Click += BtnLogin_Click;
             // 
             // FPrincipal
             // 
@@ -109,7 +109,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 441);
-            Controls.Add(BtnLogin);
+            Controls.Add(BtnConta);
             Controls.Add(BtnPesquisar);
             Controls.Add(LbDireitosAutorais);
             Controls.Add(PbLogo);
@@ -132,6 +132,6 @@
         private TextBox TbPesquisa;
         public Bitmap BackgroundImageIncial;
         private Label BtnPesquisar;
-        private Label BtnLogin;
+        private Label BtnConta;
     }
 }

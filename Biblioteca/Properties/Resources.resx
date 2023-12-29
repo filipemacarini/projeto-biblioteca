@@ -118,19 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="logoLibraryFilipeMedioPequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagens\logoLibraryFilipeMedioPequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconeLupaPesquisar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagens\iconeLupaPesquisar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personVcard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagens\personVcard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoLibraryFilipeGrande" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagens\logoLibraryFilipeGrande.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconeAlertaPequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagens\iconeAlertaPequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoLibraryFilipeMedioPequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagens\logoLibraryFilipeMedioPequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoLibraryFilipeWhiteBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagens\logoLibraryFilipeWhiteBlack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="personCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagens\personCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconeAlertaPequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagens\iconeAlertaPequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personCircleGrande" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagens\personCircleGrande.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personVcardGrande" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagens\personVcardGrande.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

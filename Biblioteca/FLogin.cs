@@ -381,16 +381,7 @@ namespace Biblioteca
                     else
                     {
                         NovoUsuario.Senha = TbEntrada.Text;
-                        string consulta = $@"insert into Usuarios (Nome, Senha, Nome_Completo, Email) values(@Nome, @Senha, @Nome_Completo, @Email)";
-                        SQLiteParameter[] parametros = new SQLiteParameter[]
-                        {
-                            new SQLiteParameter("@Nome", NovoUsuario.Nome),
-                            new SQLiteParameter("@Senha", NovoUsuario.Senha),
-                            new SQLiteParameter("@Nome_Completo", NovoUsuario.Nome_Completo),
-                            new SQLiteParameter("@Email", NovoUsuario.Email)
-                        };
-                        SQLiteCommand comando = GerenciadorDados.CriarComando(consulta, parametros);
-                        GerenciadorDados.DML(comando);
+                        GerenciadorDados.AdicionarUsuario(NovoUsuario.Nome, NovoUsuario.Senha, NovoUsuario.Nome_Completo, NovoUsuario.Email);
                     }
                     break;
             }

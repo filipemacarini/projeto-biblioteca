@@ -13,11 +13,11 @@ namespace Biblioteca
         public static Thread thread;
 
         // Relacionado ao Usuário (Login)
-        public static int Id { get; set; }
-        public static string Nome { get; set; }
-        public static string Senha { get; set; }
-        public static string Nome_Completo { get; set; }
-        public static string Email { get; set; }
-        public static bool Logado { get; set; } = false;
+        public static int Id { get; set; } = 1;
+        public static string Nome { get; set; } = "Filipe";
+        public static string Senha { get; set; } = "1234";
+        public static string Nome_Completo { get; set; } = "Filipe Emanuel Macarini Roco";
+        public static string Email { get; set; } = "filipe.roco@yahoo.com";
+        public static bool Logado { get; set; } = false; 
     }
 }

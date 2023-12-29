@@ -103,9 +103,49 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logoLibraryFilipeWhiteBlack {
+            get {
+                object obj = ResourceManager.GetObject("logoLibraryFilipeWhiteBlack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap personCircle {
             get {
                 object obj = ResourceManager.GetObject("personCircle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap personCircleGrande {
+            get {
+                object obj = ResourceManager.GetObject("personCircleGrande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap personVcard {
+            get {
+                object obj = ResourceManager.GetObject("personVcard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap personVcardGrande {
+            get {
+                object obj = ResourceManager.GetObject("personVcardGrande", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
